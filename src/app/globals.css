@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #0d0d0d;
+  --color-surface: #141414;
+  --color-elevated: #1a1a1a;
+  --color-accent: #3b82f6;
+  --color-accent-dim: #2563eb;
+  --color-accent-subtle: rgba(59, 130, 246, 0.08);
+  --color-accent-glow: rgba(59, 130, 246, 0.12);
+  --color-text: #e8e8e8;
+  --color-text-dim: #888888;
+  --color-text-muted: #555555;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
+  --font-sans: var(--font-dm-sans);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.06) transparent;
+}
+
+body {
+  background: #0d0d0d;
+  color: #e8e8e8;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.2);
+  color: #e8e8e8;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2.5s ease-out infinite;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+.blue-glow {
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1);
+}
+
+.blue-glow-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.blue-glow-hover:hover {
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25), 0 4px 20px rgba(59, 130, 246, 0.08);
+}
+
+.blue-dot {
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.4);
+}
